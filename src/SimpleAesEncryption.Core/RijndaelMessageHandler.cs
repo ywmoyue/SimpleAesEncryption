@@ -1,9 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
-using System.Text;
 
 namespace ArtisanCode.SimpleAesEncryption
 {
@@ -12,15 +11,61 @@ namespace ArtisanCode.SimpleAesEncryption
     {
         public const string CYPHER_TEXT_IV_SEPARATOR = "??";
 
-        protected string _configurationSectionName = "MessageEncryption";
+        protected string _configurationSectionPath = "MessageEncryption";
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RijndaelMessageHandler"/> class.
+        /// </summary>
+        public RijndaelMessageHandler()
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+
+            var configuration = builder.Build();
+            var configSection = configuration.GetSection(_configurationSectionPath);
+            Configuration = configSection.Get<SimpleAesEncryptionConfiguration>();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RijndaelMessageHandler"/> class.
+        /// </summary>
+        public RijndaelMessageHandler(string configurationSectionPath)
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+
+            var configuration = builder.Build();
+            var configSection = configuration.GetSection(configurationSectionPath);
+            Configuration = configSection.Get<SimpleAesEncryptionConfiguration>();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RijndaelMessageHandler"/> class.
+        /// </summary>
+        public RijndaelMessageHandler(IConfiguration configuration)
+        {
+            var _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
+            Configuration = _configuration.Get<SimpleAesEncryptionConfiguration>();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RijndaelMessageHandler"/> class.
+        /// </summary>
         public RijndaelMessageHandler(SimpleAesEncryptionConfiguration config)
         {
             Configuration = config ?? throw new ArgumentNullException(nameof(config));
         }
 
+        /// <summary>
+        /// Gets or sets the configuration.
+        /// </summary>
         public SimpleAesEncryptionConfiguration Configuration { get; }
 
+        /// <summary>
+        /// Configures the crypto container.
+        /// </summary>
         public virtual void ConfigureCryptoContainer(RijndaelManaged cryptoContainer)
         {
             if (Configuration == null)

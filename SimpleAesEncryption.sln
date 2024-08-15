@@ -33,9 +33,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleExample", "sample\Sim
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CastleWithCustomConfigSection", "sample\CastleWithCustomConfigSection\CastleWithCustomConfigSection.csproj", "{20E15878-B343-4C4B-AD5B-684DE4E30BF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleAesEncryption.Core", "src\SimpleAesEncryption.Core\SimpleAesEncryption.Core.csproj", "{F7733072-04CF-4536-B63C-954484CA13AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleAesEncryption.Core", "src\SimpleAesEncryption.Core\SimpleAesEncryption.Core.csproj", "{F7733072-04CF-4536-B63C-954484CA13AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyGen.Core", "src\KeyGen.Core\KeyGen.Core.csproj", "{AB93C1BD-46FE-473F-A394-03A78581AFD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeyGen.Core", "src\KeyGen.Core\KeyGen.Core.csproj", "{AB93C1BD-46FE-473F-A394-03A78581AFD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleExample.Core", "sample\SimpleExample.Core\SimpleExample.Core.csproj", "{30231807-429A-453F-A1A8-E5A80B751274}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,10 @@ Global
 		{AB93C1BD-46FE-473F-A394-03A78581AFD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB93C1BD-46FE-473F-A394-03A78581AFD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB93C1BD-46FE-473F-A394-03A78581AFD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30231807-429A-453F-A1A8-E5A80B751274}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30231807-429A-453F-A1A8-E5A80B751274}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30231807-429A-453F-A1A8-E5A80B751274}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30231807-429A-453F-A1A8-E5A80B751274}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +89,7 @@ Global
 		{20E15878-B343-4C4B-AD5B-684DE4E30BF3} = {65354631-B9A7-4B93-9889-6623B06B9230}
 		{F7733072-04CF-4536-B63C-954484CA13AB} = {C6DD140B-413D-4023-8EA6-50F9871CA803}
 		{AB93C1BD-46FE-473F-A394-03A78581AFD6} = {C6DD140B-413D-4023-8EA6-50F9871CA803}
+		{30231807-429A-453F-A1A8-E5A80B751274} = {65354631-B9A7-4B93-9889-6623B06B9230}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {817C46EA-8F4C-44FA-99BF-25FC9EDF7790}

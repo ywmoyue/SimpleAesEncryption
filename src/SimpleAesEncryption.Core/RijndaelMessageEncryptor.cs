@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.IO;
 using System.Security.Cryptography;
-using System.Text;
 
 namespace ArtisanCode.SimpleAesEncryption
 {
@@ -11,7 +10,30 @@ namespace ArtisanCode.SimpleAesEncryption
         /// <summary>
         /// Initializes a new instance of the <see cref="RijndaelMessageEncryptor"/> class.
         /// </summary>
-        /// <param name="config">The configuration.</param>
+        public RijndaelMessageEncryptor() : base()
+        {
+
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RijndaelMessageEncryptor"/> class.
+        /// </summary>
+        public RijndaelMessageEncryptor(IConfiguration configuration) : base(configuration)
+        {
+
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RijndaelMessageEncryptor"/> class.
+        /// </summary>
+        public RijndaelMessageEncryptor(string configurationSectionPath) : base(configurationSectionPath)
+        {
+
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RijndaelMessageEncryptor"/> class.
+        /// </summary>
         public RijndaelMessageEncryptor(SimpleAesEncryptionConfiguration config)
             : base(config)
         {

@@ -1,19 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
-using System.Text;
+using Microsoft.Extensions.Configuration;
 
 namespace ArtisanCode.SimpleAesEncryption
 {
-
     public class RijndaelMessageDecryptor : RijndaelMessageHandler, IMessageDecryptor
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RijndaelMessageDecryptor"/> class.
+        /// </summary>
+        public RijndaelMessageDecryptor(): base()
+        {
+
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RijndaelMessageDecryptor"/> class.
         /// </summary>
-        /// <param name="config">The configuration.</param>
+        public RijndaelMessageDecryptor(IConfiguration configuration) : base(configuration)
+        {
+
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RijndaelMessageDecryptor"/> class.
+        /// </summary>
+        public RijndaelMessageDecryptor(string configurationSectionPath) : base(configurationSectionPath)
+        {
+
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RijndaelMessageDecryptor"/> class.
+        /// </summary>
         public RijndaelMessageDecryptor(SimpleAesEncryptionConfiguration config)
             : base(config)
         {
